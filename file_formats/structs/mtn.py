@@ -1,7 +1,3 @@
-"""
-Windows/OS2 Bitmap (BMP) this could have been a perfect show-case file format, but they had to make it ugly (all sorts of alignments)
-"""
-
 from construct import *
 
 mtn_struct = Struct(
@@ -35,7 +31,7 @@ mtn_struct = Struct(
                 Aligned(
                     8,
                     Array(
-                        this.count,
+                        this .count,
                         Nibble
                     )
                 )
