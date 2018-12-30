@@ -2,18 +2,14 @@ from construct import *
 
 mtn_struct = Struct(
     "signature" / Const(b"MT\xbe\xef"),
-    "unknown_const_256" / Const(256, Int16ul) * "Probably part of the signature",
+    "version" / Const(1, Int16ub) * "Version number of the file.",
     "width" / Int16ul,
     "minimum_bytes_per_row" / Int16ul * "Likely used to aid resizing",
     "height" / Int16ul * "Seems to be decreased by 1 when using the standard builder. Bug?",
     "color_count" / Const(16, Int16ul),
     "palette_and_image_size" / Int16ul * "This seems to be unused - and it bugs out with larger images. You can easily exceed a short, even with the default generator",
     "sky_palette_index" / Int16ul * "This is the palette index referring to what the sky was",
-    "unknowns_16" / Struct(
-        "unknown_3" / Int16ul * "This doesn't seem to be used, and doesn't always vary between mtns",
-        "unknown_4" / Int16ul * "This doesn't seem to be used, and doesn't always vary between mtns",
-        "unknown_5" / Int16ul * "This doesn't seem to be used, and doesn't always vary between mtns",
-    ),
+    "unused" / Padding(6),
     "palette" / Array(
         16,
         Struct(

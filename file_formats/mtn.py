@@ -44,11 +44,6 @@ class BitmapToMountain:
                 'minimum_bytes_per_row': min([len(subarray) for subarray in pixels]),
                 'height': self.bitmap_struct.height,
                 'sky_palette_index': self.sky_palette_value,
-                'unknowns_16': {
-                    'unknown_3': 0,
-                    'unknown_4': 0,
-                    'unknown_5': 0,
-                },
                 'palette': self.bitmap_struct.palette,
                 'pixels': pixels,
                 'palette_and_image_size': 0
