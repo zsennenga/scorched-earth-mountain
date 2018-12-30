@@ -1,14 +1,8 @@
 import os
 
-import data
-
 
 def load_file_as_binary(filename):
-    path = data.__path__[0]
-
-    full_path = os.path.join(path, filename)
-
-    with open(full_path, mode='rb') as file_:
+    with open(filename, mode='rb') as file_:
         return file_.read()
 
 
